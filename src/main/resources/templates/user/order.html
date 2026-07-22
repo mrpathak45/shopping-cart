@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <section>
+        <div class="container mt-5 p-5">
+            <form action="/user/save-order" method="post" id="orders" novalidate>
+			<div class="row">
+                            
+				<div class="col-md-6">
+				
+                                    <!-- <form> --> 
+                                        <div class="mb-5 row">
+                                            <p class="text-center fs-4">Fill Address</p>
+                                            <hr>
+                                            <input type="text" name="firstName" placeholder="First Name" class="form-control col">
+                                            <input type="text" name="lastName" placeholder="Last Name" class="form-control col ms-2">
+                                        </div>
+                                        
+                                         <div class="mb-5 row">
+                                            
+                                            <input type="email" name="Email" placeholder="Email" class="form-control col">
+                                            <input type="text" name="mobileNo" placeholder="Mobile Number" class="form-control col ms-2">
+                                        </div>
+                                            
+                                         <div class="mb-5 row">
+                                            
+                                            <input type="text" name="address" placeholder="Address" class="form-control col">
+                                            <input type="text" name="city" placeholder="City" class="form-control col ms-2">
+                                        </div>
+                                        
+                                         <div class="mb-5 row">
+                                            
+                                            <input type="text" name="state" placeholder="state" class="form-control col">
+                                            <input type="number" name="pincode" placeholder="pincode" class="form-control col ms-2">
+                                        </div>
+                                        
+                                    <!-- </form> --> 
+                                    
+				</div>
+				<div class="col-md-6 ">
+                                     <p class="text-center fs-4">Payment Type</p>
+                                     <hr>
+                                     <div class="card">
+                                     <div class="card-body">
+                                         <table class="table table-borderless">
+                                             <tbody>
+                                             <tr>
+                                                 <td>Order Price</td>
+                                                 <TD>:</TD>
+                                                 <td>&#8377; [[${OrderPrice}]]</td>
+                                             </tr>
+                                             <tr>
+                                                 <td>Delivery Fee</td>
+                                                  <TD>:</TD>
+                                                 <td>&#8377; 50</td>
+                                             </tr>
+                                              <tr>
+                                                 <td>Tax</td>
+                                                  <TD>:</TD>
+                                                 <td>&#8377; 5</td>
+                                             </tr>
+                                             <tr class="border-top">
+                                                 <td>Total Price</td>
+                                                 <TD>:</TD>
+                                                 <td>&#8377; [[${totalOrderPrice}]]</td>
+                                             </tr>
+                                             </tbody>
+                                         </table>
+                                     </div>
+                                         </div>
+					<div class="card shadow p-3 mt-2 mb-5 bg-body-tertiary rounded">
+						
+						<div class="card-body">
+                                                    <!-- <form action="/login" method="post"> -->
+								<div class="mb-3">
+									<label class="form-label">Select Payment Type</label> 
+                                                                        <select required name="paymentType" class="form-control">
+                                                                            <option value="">--select--</option>
+                                                                            <option value="COD">Cash On Delivery</option>
+                                                            
+                                                                              <option value="ONLINE">Online Payment</option>
+                                                                        </select>
+								</div>
+
+								
+								<button
+									class="btn bg-primary text-white col-md-12">Place Order</button>
+                                                            <!-- </form> -->
+						</div>
+
+						
+					</div>
+				</div>
+                     
+			</div>
+                   </form>
+		</div>
+
+        </section>
+      
+    </body>
+</html>
