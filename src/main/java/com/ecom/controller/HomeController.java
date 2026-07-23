@@ -152,14 +152,20 @@ public class HomeController {
                 
 		if (!ObjectUtils.isEmpty(saveUser)) {
 			if (!file.isEmpty()) {
-				File saveFile = new ClassPathResource("static/img").getFile();
 
-				Path path = Paths.get(saveFile.getAbsolutePath() + File.separator + "profile_img" + File.separator
-						+ file.getOriginalFilename());
+    String uploadDir = System.getProperty("user.dir") + File.separator + "uploads"
+            + File.separator + "profile_img";
 
-//				System.out.println(path);
-				Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-			}
+    File dir = new File(uploadDir);
+
+    if (!dir.exists()) {
+        dir.mkdirs();
+    }
+
+    Path path = Paths.get(uploadDir, file.getOriginalFilename());
+
+    Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+}
 			session.setAttribute("succMsg", "Register successfully");
 		} else {
 			session.setAttribute("errorMsg", "something wrong on server");
