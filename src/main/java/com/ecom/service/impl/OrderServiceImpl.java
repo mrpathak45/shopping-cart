@@ -69,13 +69,19 @@ public class OrderServiceImpl implements OrderService {
            
            order.setOrderAddress(address);
            
-         ProductOrder saveOrder = orderRepository.save(order);
+      ProductOrder saveOrder = orderRepository.save(order);
+
+System.out.println("Order saved: " + saveOrder.getOrderId());
 
 try {
+    System.out.println("Sending email to: " + saveOrder.getOrderAddress().getEmail());
     commonUtil.sendMailForProductOrder(saveOrder, "success");
+    System.out.println("Email sent successfully.");
 } catch (Exception e) {
+    System.out.println("Email sending failed:");
     e.printStackTrace();
 }
+           
        }
        
     }
