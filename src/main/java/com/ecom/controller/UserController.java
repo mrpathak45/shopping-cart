@@ -132,7 +132,7 @@ public class UserController {
 
         @GetMapping("/success")
         public String loadSuccess(){
-            return "/user/success";
+            return "user/success";
         }
         
            @GetMapping("/user-orders")
